@@ -1,7 +1,7 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
-import QtGraphicalEffects 1.12
-import org.kde.kwin 2.0 as KWinComponents
+import QtQuick
+import QtQuick.Window
+import QtGraphicalEffects
+import org.kde.kwin as KWinComponents
 
 Item {
     y: - (mainWindow.y - minDy)
@@ -10,8 +10,8 @@ Item {
     width: currentScreenWidth
     visible: showDesktopBackground && mainWindow.activated
 
-    KWinComponents.ThumbnailItem {
-        wId: desktopWindowId
+    KWinComponents.WindowThumbnail {
+        client: desktopWindowId
         id: desktopBackground
         anchors.fill: parent
     }

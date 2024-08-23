@@ -5,18 +5,19 @@
 /// - restore previous size on un-snapping of programatically snapped window
 /// - create task switcher widget which will visually show windows tiled using this assist, allowing to minimize/restore them at once
 
-import QtQuick 2.12
-import QtQuick.Window 2.12
-import QtQuick.Controls 2.12
-import org.kde.kwin 2.0 as KWinComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
-import QtQml.Models 2.2
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls
+import org.kde.kwin as KWinComponents
+import org.kde.plasma.core as PlasmaCore
+import QtQml.Models
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami as Kirigami
 
 import "components"
-import "./code/assist.js" as AssistManager
-import "./code/keyboard.js" as KeyboardManager
-import "./code/windows.js" as WindowManager
+import "../code/assist.js" as AssistManager
+import "../code/keyboard.js" as KeyboardManager
+import "../code/windows.js" as WindowManager
 
 Window {
     id: mainWindow
@@ -115,7 +116,7 @@ Window {
 
     Component.onCompleted: {
         loadConfigs();
-        const windows = workspace.clients;
+        const windows = workspace.windowList;
         for (let i = 0; i < windows.length; ++i) {
             WindowManager.addListenersToClient(windows[i]);
         }
@@ -196,7 +197,7 @@ Window {
                                         color: "transparent"
                                     }
 
-                                    PlasmaCore.IconItem {
+                                    Kirigami.Icon {
                                         id: icon
                                         height: 12 // PlasmaCore.Units.iconSizes.medium?
                                         width: 12
@@ -213,10 +214,10 @@ Window {
                                 }
 
                                 /// window thumbnail
-                                KWinComponents.ThumbnailItem {
+                                KWinComponents.WindowThumbnail {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     id: clientThumbnail
-                                    wId: modelData.internalId
+                                    client: modelData.internalId
                                     clip: true
                                     visible: mainWindow.activated
                                     width: cardWidth - 6

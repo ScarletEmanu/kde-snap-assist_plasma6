@@ -1,6 +1,6 @@
 /// assist
 function delayedShowAssist(dx, dy, height, width, window){
-    const allClients = Object.values(workspace.clients);
+    const allClients = Object.values(workspace.windowList);
     clients = allClients.filter(c => WindowManager.shouldShowWindow(c));
     if (clients.length == 0) return;
 

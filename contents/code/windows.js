@@ -370,7 +370,7 @@ function isEqual(a, b) {
 function getClientFromId(windowId){
     //return workspace.getClient(windowId);
     /// Works on Wayland
-    return Object.values(workspace.clients).find((el) => el.internalId == windowId);
+    return Object.values(workspace.windowList).find((el) => el.internalId == windowId);
 }
 
 function shouldShowWindow(client) {

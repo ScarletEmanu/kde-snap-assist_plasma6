@@ -1,6 +1,6 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Controls
+import org.kde.plasma.components as PlasmaComponents
 
 PlasmaComponents.Button {
         x: mainWindow.width - 50
