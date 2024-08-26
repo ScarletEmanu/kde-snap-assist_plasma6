@@ -8,7 +8,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-import org.kde.kwin as KWinComponents
+import org.kde.kwin 3.0 as KWinComponents
 import org.kde.plasma.core as PlasmaCore
 import QtQml.Models
 import org.kde.plasma.components as PlasmaComponents
@@ -89,28 +89,29 @@ Window {
     property int desktopBackgroundBlur
 
     Connections {
-        target: workspace
-        function onClientActivated(window) {
+        target: KWinComponents.Workspace
+        function onWindowActivated(window) {
             if (!window) return;
             WindowManager.handleWindowFocus(window);
         }
-        function onClientAdded(window) {
+        function onWindowAdded(window) {
             WindowManager.addListenersToClient(window);
-        }
-        function onClientFullScreenSet(client, isFullScreen, isUser) {
-            /// we likely don't want assist to be shown when user exited fullscreen mode
-            if (isFullScreen == false) AssistManager.preventAssistFromShowing();
         }
         function onVirtualScreenSizeChanged(){
             /// Fix for assist getting shown when screen size changed
             AssistManager.preventAssistFromShowing(1000, () => AssistManager.hideAssist(false));
+        }
+        /// TODO: Maybe doesn't work in Plasma 6 and needs replacement
+        function onClientFullScreenSet(client, isFullScreen, isUser) {
+            /// we likely don't want assist to be shown when user exited fullscreen mode
+            if (isFullScreen == false) AssistManager.preventAssistFromShowing();
         }
     }
 
     /// Doesn't work for some reason :(
     /// hence the recommendation to re-enable the script on configs page
     Connections {
-        target: options
+        target: KWinComponents.Options
         function onConfigChanged() { loadConfigs(); }
     }
 

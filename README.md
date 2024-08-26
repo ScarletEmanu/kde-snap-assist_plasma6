@@ -3,8 +3,9 @@
 [![KDE Store](https://img.shields.io/badge/KDE%20Store-download-blue?logo=KDE)](https://store.kde.org/p/1875687)
 [![GitHub Release](https://img.shields.io/github/v/release/emvaized/kde-snap-assist?color=limegreen)](https://github.com/emvaized/kde-snap-assist/releases)
 
-
-**⚠️ Only Plasma 5 is supported for now ⚠️**
+> [!WARNING]\
+>
+**This is experimental branch dedicated for porting this script to Plasma 6**
 
 This KWin script for KDE Plasma suggests other window thumbnails on snap. It tries to replicate the famous Windows 10/11 feature of the same name.
 
@@ -18,9 +19,7 @@ Ideas, suggestions, bugs reports and contributions to the project are welcome!
 ## Support
 This project is in need of your support! If you enjoy it and want to keep it going on, please consider supporting by making a small donation using one of the services below! 
 
-<a href="https://ko-fi.com/emvaized"><img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69ea0b_kofi_long_button_red%25402x-p-800.png" alt="Support on Ko-fi" height="40"></a> &nbsp;&nbsp; <a href="https://www.buymeacoffee.com/emvaized" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 155px !important;" ></a> 
-
-<a href="https://www.paypal.com/donate/?business=2KDNGXNUVZW7N&no_recurring=0&currency_code=USD"><img src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" alt="PayPal" height="40" width="75"/></a> &nbsp;&nbsp; <a href="https://emvaized.github.io/donate/bitcoin/"><img src="https://github.com/emvaized/emvaized.github.io/blob/main/donate/bitcoin/assets/bitcoin-donate-button.png?raw=true" alt="Donate Bitcoin" height="40" width="90"/></a>
+<a href="https://ko-fi.com/emvaized"><img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69ea0b_kofi_long_button_red%25402x-p-800.png" alt="Support on Ko-fi" height="40"></a> &nbsp;&nbsp; <a href="https://liberapay.com/emvaized/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" height="40"></a> &nbsp;&nbsp; <a href="https://emvaized.github.io/donate/bitcoin/"><img src="https://github.com/emvaized/emvaized.github.io/blob/main/donate/bitcoin/assets/bitcoin-donate-button.png?raw=true" alt="Donate Bitcoin" height="40" width="90"/></a>
 
 ## Screenshots
 ![screenshot_snapassist](./assets/screenshot.png)

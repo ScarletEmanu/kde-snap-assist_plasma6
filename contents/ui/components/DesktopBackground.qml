@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Window
-import QtGraphicalEffects
-import org.kde.kwin as KWinComponents
+import Qt5Compat.QtGraphicalEffects
+import org.kde.kwin 3.0 as KWinComponents
 
 Item {
     y: - (mainWindow.y - minDy)
