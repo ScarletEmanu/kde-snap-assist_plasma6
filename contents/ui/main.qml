@@ -21,7 +21,7 @@ import "../code/windows.js" as WindowManager
 
 Window {
     id: mainWindow
-    flags: Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
+    flags: Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint | Qt.WindowStaysOnTopHint | Qt.Popup
     visible: true
     color: "transparent"
     x: mainWindow.width * 2
@@ -89,7 +89,7 @@ Window {
     property int desktopBackgroundBlur
 
     Connections {
-        target: KWinComponents.Workspace
+        target: Workspace
         function onWindowActivated(window) {
             if (!window) return;
             WindowManager.handleWindowFocus(window);
@@ -102,7 +102,7 @@ Window {
             AssistManager.preventAssistFromShowing(1000, () => AssistManager.hideAssist(false));
         }
         /// TODO: Maybe doesn't work in Plasma 6 and needs replacement
-        function onClientFullScreenSet(client, isFullScreen, isUser) {
+        function onWindowFullScreenChanged(client, isFullScreen, isUser) {
             /// we likely don't want assist to be shown when user exited fullscreen mode
             if (isFullScreen == false) AssistManager.preventAssistFromShowing();
         }
@@ -117,7 +117,7 @@ Window {
 
     Component.onCompleted: {
         loadConfigs();
-        const windows = workspace.windowList;
+        const windows = Workspace.clientList();
         for (let i = 0; i < windows.length; ++i) {
             WindowManager.addListenersToClient(windows[i]);
         }
