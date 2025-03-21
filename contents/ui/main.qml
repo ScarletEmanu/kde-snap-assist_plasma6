@@ -8,7 +8,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-import org.kde.kwin 3.0 as KWinComponents
+import org.kde.kwin as KWinComponents
 import org.kde.plasma.core as PlasmaCore
 import QtQml.Models
 import org.kde.plasma.components as PlasmaComponents
@@ -89,7 +89,7 @@ Window {
     property int desktopBackgroundBlur
 
     Connections {
-        target: Workspace
+        target: KWinComponents.Workspace
         function onWindowActivated(window) {
             if (!window) return;
             WindowManager.handleWindowFocus(window);
@@ -102,10 +102,10 @@ Window {
             AssistManager.preventAssistFromShowing(1000, () => AssistManager.hideAssist(false));
         }
         /// TODO: Maybe doesn't work in Plasma 6 and needs replacement
-        function onWindowFullScreenChanged(client, isFullScreen, isUser) {
+        //function onWindowFullScreenChanged(client, isFullScreen, isUser) {
             /// we likely don't want assist to be shown when user exited fullscreen mode
-            if (isFullScreen == false) AssistManager.preventAssistFromShowing();
-        }
+        //    if (isFullScreen == false) AssistManager.preventAssistFromShowing();
+        //}
     }
 
     /// Doesn't work for some reason :(
@@ -117,7 +117,7 @@ Window {
 
     Component.onCompleted: {
         loadConfigs();
-        const windows = Workspace.clientList();
+        const windows = KWinComponents.Workspace.windows;
         for (let i = 0; i < windows.length; ++i) {
             WindowManager.addListenersToClient(windows[i]);
         }
